@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<body>
+<ui:composition template="/templates/template.xhtml">
+
+    <ui:define name="title">PrimeFaces Sample</ui:define>
+
+    <ui:define name="body">
+        <h:form prependId="false">
+            <h:outputLabel value="Name:" for="nameInput" />
+        <p:inputText id="firstname" value="#{primeBean.name}">
+            <p:ajax event="keyup" update="out1" />
+        </p:inputText>
+        <h:outputText id="out1" value="#{primeBean.name}" />
+        </h:form>
+    </ui:define>
+</ui:composition>
+</body>
+</html>

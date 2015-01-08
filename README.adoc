@@ -1,0 +1,30 @@
+== Creating and running project made with PrimeFaces Forge addon
+
+=== Credit
+This project is a clone and modification of the Richfaces Forge Addon written by Michal Petrov https://github.com/richfaces/richfaces-forge-plugin
+I have simply taken his existing work and modified it to load and use Primefaces instead, as i had a need for Primefaces.
+
+=== Prerequsities
+* JDK 1.6 or better
+* Maven 3.0.3 or later
+* Forge (http://forge.jboss.org/[link to home page])
+
+=== Creating project
+* start *Forge*, then from the *Forge prompt* do the following steps:
+** install PrimeFaces addon:
+*** from maven repository:
+**** `addon-install --coordinate`
+**** `org.primefaces.forge:primefaces-forge-addon`
+*** or from git: `addon-install-from-git --url https://github.com/primefaces/primefaces-forge-plugin.git`
+** create project (see http://forge.jboss.org/documentation[Forge documentation])
+*** e.g. `project-new --named primefaces-example --topLevelPackage org.primefaces.example --type war --finalName primefaces-example`
+** then run following commands to install:
+*** Servlet API: `servlet-setup`
+*** JavaServer Faces: `faces-setup`
+*** PrimeFaces 4.5.0: `primefaces-setup`
+*** PrimeFaces facelet: `primefaces-facelet`
+
+=== Build/Deploy the project
+* to build the example just run `mvn package` from the project root
+* then deploy the final `primefaces-example.war` on a JEE6 container (WildFly 8, JBoss EAP 6, etc.)
+* after deploying the example to your server open a browser and type 'http://localhost:8080/primefaces-example' to view the application. Note that the URL depends on the context on which your application server deployed the example application.
